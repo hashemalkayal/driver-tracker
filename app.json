@@ -25,10 +25,13 @@
           "location",
           "fetch"
         ],
-        "NSLocationWhenInUseUsageDescription":"Disc Golf Video games makes use of location to find out distances, which is used for a number of video games",
-        "NSLocationAlwaysUsageDescription":"Disc Golf Video games makes use of location to find out distances, which is used for a number of video games",
-        "NSLocationUsageDescription":"Disc Golf Video games makes use of location to find out distances, which is used for a number of video games",
-        "LSApplicationQueriesSchemes": ["comgooglemaps", "apple-maps"]
+        "NSLocationWhenInUseUsageDescription": "Disc Golf Video games makes use of location to find out distances, which is used for a number of video games",
+        "NSLocationAlwaysUsageDescription": "Disc Golf Video games makes use of location to find out distances, which is used for a number of video games",
+        "NSLocationUsageDescription": "Disc Golf Video games makes use of location to find out distances, which is used for a number of video games",
+        "LSApplicationQueriesSchemes": [
+          "comgooglemaps",
+          "apple-maps"
+        ]
       },
       "entitlements": {
         "com.apple.developer.networking.wifi-info": true
@@ -45,7 +48,8 @@
         "ACCESS_COARSE_LOCATION",
         "ACCESS_FINE_LOCATION",
         "FOREGROUND_SERVICE"
-      ]
+      ],
+      "package": "com.sadeeemk.drivertracker"
     },
     "web": {
       "favicon": "./assets/favicon.png"

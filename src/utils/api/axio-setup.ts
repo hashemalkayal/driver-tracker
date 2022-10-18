@@ -14,7 +14,7 @@ export class AxiosApi {
 
   setup() {
     this.apiInstance = axios.create({
-      baseURL: "http://localhost:8080",
+      baseURL: "https://d5e4-46-248-204-165.in.ngrok.io",
       timeout: 0,
       headers: {
         Accept: "application/json",
@@ -68,7 +68,7 @@ export class AxiosApi {
         return { statusText: response.statusText, status: response.status };
       }
     } catch (error) {
-      console.log("response error", error, 'data: ', data);
+      console.log("response error", error, "data: ", data);
     }
     return null;
   }
