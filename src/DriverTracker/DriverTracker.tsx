@@ -107,13 +107,33 @@ export const DriverTracker = () => {
     };
   }, [started]);
 
+  const onPress = async () => {
+    const { status } = await Location.requestForegroundPermissionsAsync();
+    if (status === "granted") {
+      console.log("granted");
+
+      await Location.startLocationUpdatesAsync(LOCATION_TASK_NAME, {
+        accuracy: Location.Accuracy.BestForNavigation,
+        timeInterval: 3000,
+        foregroundService: {
+          notificationTitle: "BackgroundLocation Is On",
+          notificationBody: "We are tracking your location",
+          notificationColor: "#ffce52",
+        },
+      });
+    }
+  };
+
   return (
     <Fragment>
-      <View>
-        {/* {!!currentLocation && (
+      {Platform.OS === "ios" && (
+        <View>
+          {/* {(!!currentLocation && !!initialLocation) && (
           <MapView
             style={styles.map}
             followsUserLocation
+                    showsUserLocation={true}
+                    liteMode
             initialRegion={{
               ...initialLocation,
               latitudeDelta: LATITUDE_DELTA,
@@ -128,6 +148,7 @@ export const DriverTracker = () => {
               longitudeDelta: LONGITUDE_DELTA,
             }}
             focusable
+                    provider={PROVIDER_GOOGLE}
           >
             <Marker
               coordinate={currentLocation}
@@ -136,15 +157,16 @@ export const DriverTracker = () => {
               image={require("../../assets/truck.png")}
             />
           </MapView>
-        )} */}
-      </View>
+        )} */}{" "}
+        </View>
+      )}
 
       <View
         style={[
           {
             paddingHorizontal: 36,
             paddingVertical: 12,
-            backgroundColor: "#2214a9",
+            backgroundColor: "transparent",
             position: "absolute",
             bottom: 96,
             left: 0,
@@ -154,18 +176,19 @@ export const DriverTracker = () => {
         ]}
       >
         <Button
-          color={"white"}
+          color={"blue"}
           title="Start Tracking"
           onPress={handleStartTracking}
           disabled={started}
         />
       </View>
+
       <View
         style={[
           {
             paddingHorizontal: 36,
             paddingVertical: 12,
-            backgroundColor: "#873600",
+            backgroundColor: "transparent",
             position: "absolute",
             bottom: 32,
             left: 0,
@@ -175,7 +198,7 @@ export const DriverTracker = () => {
         ]}
       >
         <Button
-          color={"white"}
+          color={"red"}
           title="Stop Tracking"
           onPress={stopTracking}
           disabled={!started}

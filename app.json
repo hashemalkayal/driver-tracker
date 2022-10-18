@@ -21,27 +21,31 @@
     "ios": {
       "supportsTablet": true,
       "infoPlist": {
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Allows App to use location services in the foreground and background.",
+        "NSFaceIDUsageDescription": "Allows App to use Face ID for a simpler sign in.",
         "UIBackgroundModes": [
           "location",
           "fetch"
-        ],
-        "NSLocationWhenInUseUsageDescription": "Disc Golf Video games makes use of location to find out distances, which is used for a number of video games",
-        "NSLocationAlwaysUsageDescription": "Disc Golf Video games makes use of location to find out distances, which is used for a number of video games",
-        "NSLocationUsageDescription": "Disc Golf Video games makes use of location to find out distances, which is used for a number of video games",
-        "LSApplicationQueriesSchemes": [
-          "comgooglemaps",
-          "apple-maps"
         ]
       },
       "entitlements": {
         "com.apple.developer.networking.wifi-info": true
       },
-      "bundleIdentifier": "com.sadeeemk.driver-tracker"
+      "bundleIdentifier": "com.driver.tracker",
+      "config": {
+        "usesNonExemptEncryption": false,
+        "googleMapsApiKey": "AIzaSyBJW37QVuCj2WUxsOkq8fra6_CyuY9tLWc"
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
+      },
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyAdgCdPHeqwkqAovrsa7BSF1_cqC3YtgJI"
+        }
       },
       "permissions": [
         "ACCESS_BACKGROUND_LOCATION",
@@ -49,10 +53,15 @@
         "ACCESS_FINE_LOCATION",
         "FOREGROUND_SERVICE"
       ],
-      "package": "com.sadeeemk.drivertracker"
+      "package": "com.driver.tracker"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "e3ba9bbe-e4bf-417f-ab00-83b141aa24d2"
+      }
     }
   }
 }
